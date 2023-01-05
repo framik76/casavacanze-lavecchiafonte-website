@@ -1,0 +1,267 @@
+---
+// Component Imports
+import MainHead from '../components/MainHead.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import ServicePreview from '../components/servicePreview.astro';
+import type { Service } from '../types';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+// Data Fetching: List all Markdown posts in the repo.
+const services = await Astro.glob<Service>('./servizi/*.md');
+
+
+// Full Astro Component Syntax:
+// https://docs.astro.build/core-concepts/astro-components/
+---
+
+<html lang="en">
+	<head>
+		<MainHead
+			title="Casa Vacanze La Vecchia Fonte"
+			description="Casa Vacanze La Vecchia Fonte, Monteprandone"
+		/>
+		<style>
+			.wrapper {
+				margin-top: 2em;
+				margin-bottom: 2em;
+			}
+
+			.hero {
+				position: relative;
+				overflow: hidden;
+				margin-top: -11em;
+				z-index: -1;
+			}
+
+			@media (min-width: 750px) {
+				.hero {
+					height: 60vw;
+				}
+			}
+
+			.img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+
+			.gradient,
+			.gradient2 {
+				background-image: url('/assets/mesh-gradient.jpg');
+				background-size: cover;
+				pointer-events: none;
+				mix-blend-mode: screen;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 2;
+			}
+
+			.gradient2 {
+				mix-blend-mode: multiply;
+				background-size: cover;
+			}
+
+			.overlay {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 10;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				padding-left: 2rem;
+			}
+
+			@media (min-width: 750px) {
+				.overlay {
+					padding-left: 4rem;
+				}
+			}
+
+			.title {
+				font-family: 'Courgette', cursive;
+				font-weight: 400;
+				font-size: var(--f-u4);
+				color: white;
+				margin-bottom: 0.5rem;
+				margin-top: 0;
+			}
+
+			@media (min-width: 750px) {
+				.title {
+					font-size: var(--f-u9);
+				}
+			}
+
+			.grid {
+				display: grid;
+				grid-gap: 2rem;
+			}
+
+			@media (min-width: 1200px) {
+				.grid {
+					grid-template-columns: 1fr 1fr 1fr;
+				}
+			}
+
+			.sectionTitle {
+				font-weight: 500;
+				font-size: var(--f-u8);
+				margin-top: 4rem;
+				margin-bottom: 2rem;
+				text-align: center;
+				color: gray;
+			}
+
+			.roles {
+				display: flex;
+				flex-wrap: wrap;
+				gap: 0.5em;
+				font-size: var(--f-d1);
+			}
+
+			.role {
+				position: relative;
+				display: inline-block;
+				white-space: nowrap;
+				font-weight: 900;
+				color: var(--t-bg);
+				background-color: var(--t-fg);
+				padding: 0.25em 0.5em;
+				z-index: 2;
+			}
+
+			@media (min-width: 750px) {
+				.role {
+					font-size: var(--f-u3);
+				}
+			}
+
+			.role:nth-of-type(1) .invert {
+				background-color: var(--c-pink);
+			}
+
+			.role:nth-of-type(2) .invert {
+				background-color: var(--c-blue);
+			}
+
+			.role:nth-of-type(3) .invert {
+				background-color: var(--c-green);
+			}
+
+			.role:hover .invert {
+				clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+			}
+
+			.invert {
+				position: absolute;
+				color: var(--t-fg);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				pointer-events: none;
+				clip-path: polygon(0% 100%, 100% 100%, 100% 200%, 0% 200%);
+				transition: clip-path cubic-bezier(0.4, 0, 0.5, 1) 150ms;
+			}
+
+			.desc {
+				font-size: var(--f-u1);
+				margin-top: 1.5rem;
+				margin-bottom: 0;
+			}
+
+			.subtitle {
+				display: block;
+				font-weight: 400;
+				font-size: var(--f-d6);
+				letter-spacing: -0.0625em;
+			}
+
+			.bio {
+				line-height: 2;
+				margin-bottom: 2rem;
+			}
+
+			.bio > span:first-of-type {
+				line-height: 1;
+				margin-bottom: 0.5em;
+				display: block;
+				font-weight: 700;
+				font-size: var(--f-u4);
+			}
+
+			.buttonContainer {
+				text-align: center;
+				margin-top: 2em;
+			}
+
+			#map {
+				height: 400px; /* The height is 400 pixels */
+				width: 100%; /* The width is the width of the web page */
+				margin-top: 2em;
+			}
+
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<header class="hero">
+			<img
+				width="1600"
+				height="1066"
+				class="img"
+				src="/assets/home.jpg"
+				sizes="(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2400px) 2400px, 1200px"
+			/>
+			<!--<div class="gradient"></div>
+			<div class="gradient2"></div>-->
+			<div class="overlay">
+				<h1 class="title">
+					Casa Vacanze La Vecchia Fonte, Monteprandone (AP), Italy 
+				</h1>
+				<h1 class="title">
+					Alla ricerca del tempo perduto 
+				</h1>
+			</div>
+		</header>
+		<main class="wrapper">
+			<div>
+				<div><h3 class="sectionTitle">I nostri servizi</h3></div>
+				<div class="grid">
+					{services.map((service) => <ServicePreview service={service} />)}
+				</div>
+			</div>		
+		</main>
+		<div id="mapContainer">
+			<div><h3 class="sectionTitle">Dove siamo</h3></div>
+			<div id='map'></div>
+		</div>
+		<script>
+		mapboxgl.accessToken = import.meta.env.PUBLIC_MAPBOX_ACCESS_TOKEN;
+		const map = new mapboxgl.Map({
+			container: 'map', // container ID
+			style: 'mapbox://styles/mapbox/streets-v12', // style URL
+			center: [13.8477107, 42.9244534], // starting position [lng, lat]
+			zoom: 13, // starting zoom
+		});
+		// Create a new marker.
+		const marker = new mapboxgl.Marker()
+			.setLngLat([13.8477107, 42.9244534])
+			.addTo(map);
+		</script>
+		<Footer />
+		<script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+		<link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />		
+	</body>
+</html>

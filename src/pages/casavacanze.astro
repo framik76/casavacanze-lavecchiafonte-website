@@ -1,0 +1,57 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<html lang="en">
+	<head>
+		<MainHead title="Casa Vacanze | La Vecchia Fonte" description="Presentazione Casa Vacanze La Vecchia Fonte" />
+		<style>
+			.heroImg {
+				max-height: 24rem;
+				object-fit: cover;
+				overflow: hidden;
+			}
+
+			.heroImg img {
+				width: 100%;
+			}
+
+			.bio {
+				font-size: var(--f-u1);
+				line-height: 2;
+				margin-top: 4em;
+			}
+
+			.wrapper.bio {
+				max-width: 50em;
+			}
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<Header img="/assets/home.jpg" title="Casa Vacanze La vecchia Fonte" />
+		<div class="wrapper">
+			<div class="bio wrapper">
+				<p>
+					L’appartamento denominato Casa Vacanze La Vecchia Fonte, situato nelle verdi colline del comune di Monteprandone, 
+					è il posto ideale per chi ama la tranquillità. 
+					Circondato da vigneti e in vista del mare Adriatico - che dista solo 5 km – permette, 
+					lontano dal caos urbano e dalla frenesia del mondo moderno, un tuffo nel passato quando le emozioni avevano il tempo 
+					e il modo di sedimentarsi nell'animo. 
+				</p>
+				<p>
+					L’appartamento CASA VACANZE LA  VECCHIA FONTE, ristrutturato nel 2022 e a cui si accede tramite un’antica scala 
+					con gradini di travertino, è parte di un grande Casale in cui è già attivo dal 2018 anche un B&B. 
+				</p>
+				<p>
+					L’appartamento della Casa Vacanze è dotato di una grande cucina soggiorno, due camere matrimoniali con bagno interno, 
+					un ampio terrazzo dove si può mangiare e godere del panorama. All’esterno c’è un grande giardino e un parcheggio privato e gratuito. 
+				</p>
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>

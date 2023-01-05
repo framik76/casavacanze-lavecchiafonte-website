@@ -1,0 +1,119 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<html lang="en">
+	<head>
+		<MainHead title="Tariffe | Casa Vacanze La Vecchia Fonte" description="Tariffe Casa Vacanze La Vecchia Fonte" />
+		<style>
+			.heroImg {
+				max-height: 24rem;
+				object-fit: cover;
+				overflow: hidden;
+			}
+
+			.heroImg img {
+				width: 100%;
+			}
+
+			.bio {
+				font-size: var(--f-u1);
+				line-height: 2;
+				margin-top: 4em;
+			}
+
+			.wrapper.bio {
+				max-width: 50em;
+			}
+			table {
+				border: 1px solid;
+			}
+			table td {
+				border: 1px solid;
+			}
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<Header img="/assets/home.jpg" title="Tariffe" />
+		<div class="wrapper">
+			<div class="bio wrapper">
+				<p><strong>Aprile, Maggio, Giugno e Settembre (prenotazione da 4 a 14 giorni)</strong></p>
+				<figure class="wp-block-table">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>n. persone</strong></td>
+								<td><strong>giorni</strong></td>
+								<td><strong>costo</strong></td>
+								<td><strong>Costo al giorno se più di 4 gg</strong></td>
+							</tr>
+							<tr>
+								<td><strong>2</strong></td>
+								<td><strong>4</strong></td>
+								<td><strong>350 euro</strong></td>
+								<td><strong>85 euro</strong></td>
+							</tr>
+							<tr>
+								<td><strong>3 o 4</strong></td>
+								<td><strong>4</strong></td>
+								<td><strong>400 euro</strong></td>
+								<td><strong>100 euro</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</figure>
+
+				<p><strong>Aprile, Maggio, Giugno e Settembre (prenotazione da 15 a 30 giorni)</strong></p>
+				<figure class="wp-block-table">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>n. persone</strong></td>
+								<td><strong>Costo al giorno</strong></td>
+							</tr>
+							<tr>
+								<td><strong>2</strong></td>
+								<td><strong>80 euro</strong></td>
+							</tr>
+							<tr>
+								<td><strong>3 o 4</strong></td>
+								<td><strong>90 euro</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</figure>
+
+				<p><strong>Luglio e Agosto (prenotazione di minimo 7 giorni)</strong></p>
+				<figure class="wp-block-table">
+					<table>
+						<tbody>
+							<tr>
+								<td><strong>n. persone</strong></td>
+								<td><strong>giorni</strong></td>
+								<td><strong>costo</strong></td>
+								<td><strong>Costo al giorno se più di 7 gg</strong></td>
+							</tr>
+							<tr>
+								<td><strong>2</strong></td>
+								<td><strong>7</strong></td>
+								<td><strong>700 euro</strong></td>
+								<td><strong>90 euro</strong></td>
+							</tr>
+							<tr>
+								<td><strong>3 o 4</strong></td>
+								<td><strong>7</strong></td>
+								<td><strong>800 euro</strong></td>
+								<td><strong>110 euro</strong></td>
+							</tr>
+						</tbody>
+					</table>
+				</figure>
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>

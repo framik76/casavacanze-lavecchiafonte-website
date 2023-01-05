@@ -1,0 +1,29 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+	Casa Vacanze La Vecchia Fonte, contrada Fonte Vecchia, 7 - 63076 Monteprandone (AP)<br />
+	<i class="fa-solid fa-phone"></i> 346-0101921 - <i class="fa-solid fa-envelope"></i> info@casavacanzelavecchiafonte.it<br />
+	&copy; {currentYear} 
+	<small class="byline">🚀 Built by Astro</small>
+</footer>
+<style>
+	footer {
+		background-color: gray;
+		color: white;
+		text-align: center;
+		padding-top: 2rem;
+		padding-right: 2rem;
+		padding-bottom: 2rem;
+		padding-left: 2rem;
+	}
+
+	.byline {
+		display: block;
+		margin-top: 1rem;
+		color: var(--t-subdue);
+		font-size: var(--f-d2);
+		text-transform: uppercase;
+	}
+</style>

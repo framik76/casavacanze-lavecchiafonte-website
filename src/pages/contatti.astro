@@ -1,0 +1,117 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<html lang="en">
+	<head>
+		<MainHead title="Contatti | Casa Vacanze La Vecchia Fonte" description="Contatti Casa Vacanze La Vecchia Fonte" />
+		<style>
+			.heroImg {
+				max-height: 24rem;
+				object-fit: cover;
+				overflow: hidden;
+			}
+
+			.heroImg img {
+				width: 100%;
+			}
+
+			.bio {
+				font-size: var(--f-u1);
+				line-height: 2;
+				margin-top: 4em;
+			}
+
+			.wrapper.bio {
+				max-width: 50em;
+			}
+			table {
+				border: 1px solid;
+			}
+			table td {
+				border: 1px solid;
+			}
+
+            .form-fields {
+                display: table;
+            }
+
+            .form-field {
+                display: table-row;
+            }
+
+            .form-field-label, .form-field-control, .form-field-comment {
+                display: table-cell;
+                padding: 3px 10px;
+            }
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<Header img="/assets/home.jpg" title="Contatti" />
+		<div class="wrapper">
+			<div class="bio wrapper">
+                <p>Compila il form per inviarci la tua richiesta di contatto, oppure per qualsiasi informazione telefona al numero 346/0101921 (Marco)</p>
+                <div class="form-fields">
+                    <form method="post" action="" name="formContact" onsubmit="javascript:sendMessage()">
+                        <div class="form-field">
+                            <label class="form-field-label" for="your_name">Il tuo nome</label>
+                            <div class="form-field-control"><input class="inputForm" type="text" name="your_name" id="your_name" /></div>
+                            <div class="form-field-comment">Obbligatorio</div>                    
+                        </div>
+                        <div class="form-field">
+                            <label class="form-field-label" for="your_email">La tua Email</label>
+                            <div class="form-field-control"><input class="inputForm" type="text" name="your_email" id="your_email" /></div>      
+                            <div class="form-field-comment">Obbligatorio</div>                          
+                         </div>
+                         <div class="form-field">
+                            <label class="form-field-label" for="oggetto"> Oggetto</label>
+                            <div class="form-field-control"><input class="inputForm" type="text" name="oggetto" id="oggetto" /></div>
+                         </div>
+                        <div class="form-field">
+                            <label class="form-field-label" for="message"> Il tuo messaggio </label>
+                            <div class="form-field-control"><textarea class="inputForm" name="message" id="message" rows="5" /></div>
+                        </div>   
+                        <div class="form-field">
+                            <div class="form-field-control"><input type="button" value="Invia" id="sendMessageBtn" /></div>
+                        </div>
+                    </form>  
+                </div>
+                <div id="results"></div>
+			</div>
+		</div>
+        <script>
+            function sendMessage() {
+                if (document.formContact.your_name.value == "" || document.formContact.your_email.value == "") {
+                    alert("Nome e/o email non inseriti");
+                }
+                let message = "Nome: " + document.getElementById("your_name").value + "\n";
+                message += "Email: " + document.getElementById("your_email").value + "\n";
+                message += "Oggetto: " + document.getElementById("oggetto").value + "\n";
+                message += "Messaggio: " + document.getElementById("message").value + "\n";
+
+                const formData = new FormData();
+                formData.append("from", "Website <mailgun@casavacanzelavecchiafonte.it>");
+                formData.append("to", "info@casavacanzelavecchiafonte.it");
+                formData.append("subject", "Richiesta informazioni");
+                formData.append("text", message);
+
+                fetch("https://api.mailgun.net/v3/sandbox128a4d9b962d4d5aab6ad361ad08b85e.mailgun.org/messages",
+                {
+                method: 'POST',
+                headers: { 
+                    'Authorization': 'Basic ' + btoa("api:" + import.meta.env.PUBLIC_MAILGUN_API_KEY) },
+                body: formData
+                });
+
+                document.getElementById("results").innerHTML = "Richiesta inviata grazie, le risponderemo prima possibile";
+            }
+
+            document.getElementById("sendMessageBtn").addEventListener("click", sendMessage);
+        </script>
+		<Footer />
+	</body>
+</html>

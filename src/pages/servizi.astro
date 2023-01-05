@@ -1,0 +1,58 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Nav from '../components/Nav.astro';
+import ServicePreview from '../components/servicePreview.astro';
+import type { Service } from '../types';
+
+const services = (await Astro.glob<Service>('./servizi/*.md'))
+	//.filter(({ frontmatter }) => !!frontmatter.publishDate)
+	.sort((a, b) => b.title - a.title);
+---
+
+<html lang="en">
+    <style>
+        .wrapper {
+				margin-top: 2em;
+				margin-bottom: 2em;
+			}
+        
+        .grid {
+            display: grid;
+            grid-gap: 2rem;
+        }
+
+        @media (min-width: 1200px) {
+            .grid {
+                grid-template-columns: 1fr 1fr 1fr;
+            }
+        }
+    </style>
+	<head>
+		<MainHead
+			title="I nostri servizi | Casa Vacanze La Vecchia Fonte"
+			description="I servizi della Casa Vacanze La Vecchia Fonte"
+		/>
+		<style>
+			.grid {
+				display: grid;
+				grid-gap: 3rem;
+			}
+			.title {
+				margin-top: 2rem;
+				margin-bottom: 2rem;
+			}
+		</style>
+	</head>
+	<body>
+		<Nav />
+        <Header img="/assets/home.jpg" title="I nostri servizi" />
+		<div class="wrapper">
+			<div class="grid">
+				{services.map((service) => <ServicePreview service={service} />)}
+			</div>
+		</div>
+		<Footer />
+	</body>
+</html>

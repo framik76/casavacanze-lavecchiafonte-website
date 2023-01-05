@@ -1,0 +1,97 @@
+---
+import MainHead from '../components/MainHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import Nav from '../components/Nav.astro';
+---
+
+<html lang="en">
+	<head>
+		<MainHead title="Dpve siamo | Casa Vacanze La Vecchia Fonte" description="Dove siamo Casa Vacanze La Vecchia Fonte" />
+		<style>
+			.heroImg {
+				max-height: 24rem;
+				object-fit: cover;
+				overflow: hidden;
+			}
+
+			.heroImg img {
+				width: 100%;
+			}
+
+			.bio {
+				font-size: var(--f-u1);
+				line-height: 2;
+				margin-top: 4em;
+			}
+
+			.wrapper.bio {
+				max-width: 50em;
+			}
+			table {
+				border: 1px solid;
+			}
+			table td {
+				border: 1px solid;
+			}
+
+			#map2 {
+				height: 300px;
+				width: 100%; /* The width is the width of the web page */
+				margin-top: 2em;
+			}
+		</style>
+	</head>
+	<body>
+		<Nav />
+		<Header img="/assets/home.jpg" title="Dove siamo" />
+		<div class="wrapper">
+			<div class="bio wrapper">
+				<p>
+					CASA VACANZE LA VECCHIA FONTE<br />
+					Contrada Fonte Vecchia, 7<br />
+					63076, Monteprandone (AP)<br />
+					Italia<br />
+					Telefono: 346 010 1921<br />
+					Email: info@casavacanzelavecchiafonte.it
+				</p>
+				<p>
+					<strong>La nostra zona</strong>
+					<br />	
+					La nostra zona è ricca di opportunità. Se amate il mare, il buon pesce e lo shopping, c'è San Benedetto del Tronto a pochi km di distanza. Se amate visitare i piccoli borghi medievali, avete Monteprandone a due passi e una miriade di splendidi borghi nel raggio di una trentina di km, senza dimenticare il gioiello medievale più importante, Ascoli Piceno, con le sue rue, le sue opere d’arte e una delle piazze più belle d'Italia, Piazza del Popolo. Se invece amate la montagna, a una quarantina di km percorribili su veloce superstrada, ci sono i parchi naturali dei Monti Sibillini e della Laga. Il terremoto che ha colpito quelle zone (Arquata e dintorni), pur lasciando delle ferite profonde e dolorose, non ne ha intaccato il fascino. Potete tranquillamente visitare a luglio i prati fioriti di Castelluccio e avventurarvi per qualcuno dei numerosi percorsi naturalistici che permettono un rigenerarsi del corpo e dell'anima.
+				</p>
+				<p>
+					<strong>Come arrivare</strong><br />	
+					Per chi proviene in auto da Nord o da Sud: <br />
+					Uscite al casello di San Benedetto del Tronto. Proseguite seguendo l’indicazione SanBenedetto del Tronto Centro / Mare. In questo modo, dopo qualche km, arriverete in vista dello stadio Riviera delle Palme. Qui vi troverete di fronte a una scelta: San Benedetto Centro o Pescara / Ancona / SS 16.
+					Scegliete di andare verso Pescara / Ancona / SS 16.
+					Dopo 100 metri circa, troverete una rotatoria di fronte alla quale è ben visibile la concessionaria d’auto Cascioli BMW. Girate a sinistra, proseguite per un
+					centinaio di metri fino a trovare un incrocio con semaforo e indicazione a destra per Monteprandone. Prendete questa strada provinciale.
+					Dopo circa 4 km di percorrenza, immediatamente a ridosso di un piccolo campo sportivo, sulla destra troverete Contrada Fonte Vecchia (di cui tuttavia non vedrete la segnaletica perché non vi è di fronte, ma di spalle). 
+					Vedrete un bivio. Girate a destra e percorrete la strada asfaltata per circa 200 metri fino a che troverete un altro bivio. Girate a destra, percorrete la strada sterrata per 200 m circa e troverete
+					Casa Vacanze La Vecchia Fonte.<br />
+
+					Per chi usa il navigatore satellitare (Google Maps o WAZE), ad evitare errori e perdite di tempo, non si dimentichi mai che Contrada Fonte Vecchia è una deviazione a metà strada circa sulla provinciale San Benedetto del Tronto – Monteprandone (in entrambe le direzioni).
+				</p>
+				<p>L’aeroporto più vicino è a Pescara, a 60 km di distanza.</p>
+				<div id="map2"></div>					
+			</div>
+		</div>
+		<Footer />
+	</body>
+	<script>
+		mapboxgl.accessToken = import.meta.env.PUBLIC_MAPBOX_ACCESS_TOKEN;
+		const map = new mapboxgl.Map({
+			container: 'map2', // container ID
+			style: 'mapbox://styles/mapbox/streets-v12', // style URL
+			center: [13.8477107, 42.9244534], // starting position [lng, lat]
+			zoom: 13, // starting zoom
+		});
+		// Create a new marker.
+		const marker = new mapboxgl.Marker()
+			.setLngLat([13.8477107, 42.9244534])
+			.addTo(map);
+	</script>
+	<script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+	<link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
+</html>

@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+const {
+	title = 'Casa Vacanze La Vecchia Fonte',
+	description = 'Casa Vacanze La Vecchia Fonte, Monteprandone',
+} = Astro.props;
+---
+
+<meta charset="UTF-8" />
+<meta name="description" property="og:description" content={description} />
+<meta name="viewport" content="width=device-width" />
+<meta name="generator" content={Astro.generator} />
+<title>{title}</title>
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;700;900&display=swap"
+	rel="stylesheet"
+/>
+<link rel='stylesheet' id='fonts-css'  href='https://fonts.googleapis.com/css?family=Courgette%7CRoboto%3A300%2C400%2C500%2C700%7CRoboto&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
+<link href="/assets/fontawesome/fontawesome.min.css" rel="stylesheet">
+<link href="/assets/fontawesome/brands.min.css" rel="stylesheet">
+<link href="/assets/fontawesome/solid.min.css" rel="stylesheet">
