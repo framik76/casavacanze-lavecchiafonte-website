@@ -20,8 +20,15 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
-      - name: Install, build, and upload your site
-        uses: withastro/action@v0
+      - name: Build
+        run: |
+          npm install
+          npm run build
+        env:
+          PUBLIC_MAPBOX_ACCESS_TOKEN: ${{ secrets.PUBLIC_MAPBOX_ACCESS_TOKEN }}
+          PUBLIC_MAILGUN_API_KEY: ${{ secrets.PUBLIC_MAILGUN_API_KEY }}
+      #- name: Install, build, and upload your site
+      #  uses: withastro/action@v0
         # with:
             # path: . # The root location of your Astro project inside the repository. (optional)
             # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
