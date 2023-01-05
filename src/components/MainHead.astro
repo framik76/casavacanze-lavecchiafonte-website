@@ -12,7 +12,7 @@ const {
 <meta name="generator" content={Astro.generator} />
 <title>{title}</title>
 
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/svg+xml" href={import.meta.env.PUBLIC_ROOT_FOLDER + "favicon.svg"} />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link
@@ -22,6 +22,6 @@ const {
 <link rel='stylesheet' id='fonts-css'  href='https://fonts.googleapis.com/css?family=Courgette%7CRoboto%3A300%2C400%2C500%2C700%7CRoboto&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.11.0/mapbox-gl.css' rel='stylesheet' />
-<link href="/assets/fontawesome/fontawesome.min.css" rel="stylesheet">
-<link href="/assets/fontawesome/brands.min.css" rel="stylesheet">
-<link href="/assets/fontawesome/solid.min.css" rel="stylesheet">
+<link href={import.meta.env.PUBLIC_ROOT_FOLDER + "assets/fontawesome/fontawesome.min.css"} rel="stylesheet">
+<link href={import.meta.env.PUBLIC_ROOT_FOLDER + "assets/fontawesome/brands.min.css"} rel="stylesheet">
+<link href={import.meta.env.PUBLIC_ROOT_FOLDER + "assets/fontawesome/solid.min.css"} rel="stylesheet">

@@ -1,18 +1,18 @@
 ---
 layout: ../../layouts/servizi.astro
 title: Cucina e soggiorno
-img: /assets/cucina.jpg
+img: assets/cucina.jpg
 description: |
   La cucina soggiorno è dotata di ogni comfort
 gallery:
-  - /assets/cucina1.jpg
-  - /assets/cucina2.jpg
-  - /assets/cucina3.jpg
-  - /assets/cucina4.jpg
-  - /assets/cucina5.jpg
-  - /assets/cucina6.jpg
-  - /assets/cucina7.jpg
-  - /assets/cucina8.jpg
+  - assets/cucina1.jpg
+  - assets/cucina2.jpg
+  - assets/cucina3.jpg
+  - assets/cucina4.jpg
+  - assets/cucina5.jpg
+  - assets/cucina6.jpg
+  - assets/cucina7.jpg
+  - assets/cucina8.jpg
 ---
 
 La cucina soggiorno è dotata di:

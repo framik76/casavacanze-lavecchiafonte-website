@@ -1,16 +1,16 @@
 ---
 layout: ../../layouts/servizi.astro
 title: Camere
-img: /assets/camere.jpg
+img: assets/camere.jpg
 description: |
   Le camere sono dotate di bagno interno
 gallery:
-  - /assets/camera1.jpg
-  - /assets/camera2.jpg
-  - /assets/ginestra1.jpg
-  - /assets/ginestra2.jpg
-  - /assets/ginestra3.jpg
-  - /assets/oleandro.jpg
+  - assets/camera1.jpg
+  - assets/camera2.jpg
+  - assets/ginestra1.jpg
+  - assets/ginestra2.jpg
+  - assets/ginestra3.jpg
+  - assets/oleandro.jpg
 ---
 
 L'appartamento dispone di due camere da letto, ciascuna dotata di:

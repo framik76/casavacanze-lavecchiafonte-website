@@ -47,7 +47,7 @@ const services = (await Astro.glob<Service>('./servizi/*.md'))
 	</head>
 	<body>
 		<Nav />
-        <Header img="/assets/home.jpg" title="I nostri servizi" />
+        <Header img="assets/home.jpg" title="I nostri servizi" />
 		<div class="wrapper">
 			<div class="grid">
 				{services.map((service) => <ServicePreview service={service} />)}

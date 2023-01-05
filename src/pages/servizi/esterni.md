@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/servizi.astro
 title: Esterni
-img: /assets/esterno0.jpg
+img: assets/esterno0.jpg
 description: |
   Ampi spazi esterni utilizzabili dagli ospiti
 gallery:
-  - /assets/esterno.jpg
-  - /assets/esterno1.jpg
-  - /assets/esterno2.jpg
+  - assets/esterno.jpg
+  - assets/esterno1.jpg
+  - assets/esterno2.jpg
 ---
 
 <ul>

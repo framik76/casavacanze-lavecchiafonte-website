@@ -7,10 +7,11 @@ interface Props {
 }
 
 const { frontmatter, url } = Astro.props.service;
+const rootFolder = import.meta.env.PUBLIC_ROOT_FOLDER;
 ---
 
 <div class="card">
-	<div class="titleCard" style={`background-image:url(${frontmatter.img})`}></div>
+	<div class="titleCard" style={`background-image:url(${rootFolder + frontmatter.img})`}></div>
 	<div class="descCard">
 		<h1 class="title">{frontmatter.title}</h1>
 		<p class="desc">{frontmatter.description}</p>

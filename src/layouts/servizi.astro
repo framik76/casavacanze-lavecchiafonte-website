@@ -10,6 +10,7 @@ interface Props {
 }
 
 const { content } = Astro.props;
+const rootFolder = import.meta.env.PUBLIC_ROOT_FOLDER;
 ---
 
 <html lang="en">
@@ -103,11 +104,11 @@ const { content } = Astro.props;
 		<div class="wrapper">
 			<div class="content"><slot /></div>
 			<div class="gallery">
-				{content.gallery.map((img) => <img class="imgGallery" src={img} />)}
+				{content.gallery.map((img) => <img class="imgGallery" src={rootFolder + img} />)}
 			</div>
 		</div>
 		<footer>
-			<a href="/servizi" class="button">Tutti i servizi</a>
+			<a href={rootFolder + "servizi"} class="button">Tutti i servizi</a>
 		</footer>
 		<Footer />
 	</body>
