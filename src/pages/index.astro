@@ -109,6 +109,12 @@ const services = await Astro.glob<Service>('./servizi/*.md');
 				}
 			}
 
+			@media (max-width: 450px) {
+				.grid {
+					grid-template-columns: 1fr;
+				}
+			}
+
 			.sectionTitle {
 				font-weight: 500;
 				font-size: var(--f-u8);
@@ -220,7 +226,7 @@ const services = await Astro.glob<Service>('./servizi/*.md');
 				height="1066"
 				class="img"
 				src="assets/home.jpg"
-				sizes="(max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2400px) 2400px, 1200px"
+				sizes="(max-width: 450px) 450px, (max-width: 800px) 800px, (max-width: 1200px) 1200px, (max-width: 1600px) 1600px, (max-width: 2400px) 2400px, 1200px"
 			/>
 			<div class="overlay">
 				<h1 class="title">
