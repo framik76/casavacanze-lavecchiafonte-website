@@ -61,7 +61,7 @@ body {
 	width: auto;
 }
 
-@media only screen and (max-width:700px) {
+@media only screen and (max-width:82s0px) {
 	body {
 		width: fit-content;
 	}
