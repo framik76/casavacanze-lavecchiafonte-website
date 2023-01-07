@@ -92,10 +92,13 @@ const services = await Astro.glob<Service>('./servizi/*.md');
 				margin-top: 0;
 			}
 
-			@media (min-width: 750px) {
-				.title {
-					font-size: var(--f-u9);
-				}
+			.subtitle {
+				font-family: 'Courgette', cursive;
+				font-weight: 400;
+				font-size: var(--f-u6);
+				color: white;
+				margin-bottom: 0.5rem;
+				margin-top: 0;
 			}
 
 			.grid {
@@ -185,13 +188,6 @@ const services = await Astro.glob<Service>('./servizi/*.md');
 				margin-bottom: 0;
 			}
 
-			.subtitle {
-				display: block;
-				font-weight: 400;
-				font-size: var(--f-d6);
-				letter-spacing: -0.0625em;
-			}
-
 			.bio {
 				line-height: 2;
 				margin-bottom: 2rem;
@@ -216,6 +212,33 @@ const services = await Astro.glob<Service>('./servizi/*.md');
 				margin-top: 2em;
 			}
 
+			@media only screen and (max-width:700px) {
+				.hero {
+					margin-top: 0;
+				}
+
+				.title {
+					font-size: var(--f-d3);
+				}
+
+				.subtitle {
+					font-size: var(--f-u2);				
+				}	
+
+				.overlay {
+					padding-left: 0;
+					width: 100%;
+				}
+
+				.wrapper {
+					position: relative;
+				}
+
+				.mapContainer {
+
+				}
+			}
+
 		</style>
 	</head>
 	<body>
@@ -232,7 +255,7 @@ const services = await Astro.glob<Service>('./servizi/*.md');
 				<h1 class="title">
 					Casa Vacanze La Vecchia Fonte, Monteprandone (AP), Italy 
 				</h1>
-				<h1 class="title">
+				<h1 class="subtitle">
 					Alla ricerca del tempo perduto 
 				</h1>
 			</div>

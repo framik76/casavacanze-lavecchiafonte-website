@@ -2,14 +2,18 @@
 	<a class="link" href={import.meta.env.BASE_URL}>
 		<div class="logo"><img src={import.meta.env.BASE_URL + "assets/logo_casa_vacanze.svg"} /></div>
 	</a>
-	<a class="link" href={import.meta.env.BASE_URL + "casavacanze/"}>Casa Vacanze</a>
-	<a class="link" href={import.meta.env.BASE_URL +"prenota/"}>Prenota</a>
-	<a class="link" href={import.meta.env.BASE_URL +"servizi/"}> Servizi</a>
-	<a class="link" href={import.meta.env.BASE_URL +"tariffe/"}> Tariffe</a>
-	<a class="link" href={import.meta.env.BASE_URL +"metodiDiPagamento/"}> Metodi di pagamento</a>
-	<a class="link" href={import.meta.env.BASE_URL +"doveSiamo/"}> Dove siamo</a>
-	<a class="link" href={import.meta.env.BASE_URL +"contatti/"}> Contatti</a>
-	<a class="link" href="https://casalefontevecchia.com" target="_blank">B & B</a>
+	<div class="menu-list" id="menuList">
+		<a class="link" href={import.meta.env.BASE_URL + "casavacanze/"}>Casa Vacanze</a>
+		<a class="link" href={import.meta.env.BASE_URL +"prenota/"}>Prenota</a>
+		<a class="link" href={import.meta.env.BASE_URL +"servizi/"}> Servizi</a>
+		<a class="link" href={import.meta.env.BASE_URL +"tariffe/"}> Tariffe</a>
+		<a class="link" href={import.meta.env.BASE_URL +"metodiDiPagamento/"}> Metodi di pagamento</a>
+		<a class="link" href={import.meta.env.BASE_URL +"doveSiamo/"}> Dove siamo</a>
+		<a class="link" href={import.meta.env.BASE_URL +"contatti/"}> Contatti</a>
+		<a class="link" href="https://casalefontevecchia.com" target="_blank">B & B</a>
+	</div>
+	<input type="checkbox" id="toggle" class="input-toggler">   
+	<label for="toggle" class="menu-toggler"><i class="fa-solid fa-bars" id="menu-toggle" /></label>
 	<div class="socials">
 		<a class="social" href="https://www.facebook.com/people/La-Vecchia-FONTE/100089444673604/">
 			<svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="32" height="32" viewBox="0 0 50 50">
@@ -23,23 +27,40 @@
 		</a>
 	</div>
 </nav>
-
+<script>
+	document.getElementById("toggle").addEventListener("click", () => {
+		var toggle = document.getElementById("toggle");	
+		var menuList = document.getElementById("menuList");
+		if (toggle.checked) {
+			menuList.style.display = 'block';
+		} else {
+			menuList.style.display = 'none';
+		}
+	});
+</script>
 <style>
 	nav {
 		display: flex;
 		gap: 2rem;
 		align-items: center;
-		padding: 1rem;
+		padding: 2rem;
+	}
+	.input-toggler {
+		display: none;
+	}
+	.menu-toggler {
+		display: none;
 	}
 
 	.link {
 		color: white;
-		display: block;
+		display: inline;
 		text-decoration: none;
 		font-size: var(--f-d1);
 		text-transform: uppercase;
 		padding-top: 0.75em;
 		padding-bottom: 0.75em;
+		padding-right: 2rem;
 	}
 
 	.link:hover,
@@ -78,7 +99,7 @@
 	}
 
 	.socialIcon {
-		display: block;
+		display: inline-block;
 		width: 1.25rem;
 		height: 1.25rem;
 		fill: var(--t-subdue);
@@ -88,4 +109,87 @@
 	.socialIcon:hover {
 		fill: var(--t-active);
 	}
+
+	.menu-list {
+		margin-right: 50px;
+	}
+
+	@media only screen and (max-width:700px) {
+
+		nav {
+			height: 0;
+			padding: 0;
+		}
+
+		.menu-toggler {
+			display: block;
+		}		
+
+		#menu-toggle {
+			color: white;
+			display: block;
+			margin-top: 100px;
+			margin-right: 20px;
+			cursor: pointer;
+		}
+
+		.logo {
+			margin-top: 100px;
+			margin-left: 20px;
+		}
+
+		.menu-list {
+			height: 100%;
+			display: none;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%; 		
+			background: #1c4e8f;
+			z-index: 30;
+		}
+
+		.link {
+			display: block;
+			text-decoration: none;
+			font-size: var(--f-d1);
+			text-transform: uppercase;
+			padding-top: 0.75em;
+			padding-bottom: 0.75em;
+			padding-right: 2rem;
+			width: 100%;
+		}
+
+		.socials {
+			width: 100%;
+			background: #1c4e8f;
+			position: absolute;
+			display: none;
+			top: 320px;
+			left: 0;
+			z-index: 32;
+		}
+
+		.input-toggler:checked ~ .menu-list {
+			height: 100%;
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%; 		
+			background: #1c4e8f;	
+		}
+
+		.input-toggler:checked ~ .socials {
+			height: 100%;
+			display: flex;
+			position: absolute;
+			left: 0;
+			top: 320px;
+			width: 100%; 		
+			background: #1c4e8f;	
+		}
+
+	}
+
 </style>
