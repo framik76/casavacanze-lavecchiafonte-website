@@ -3,7 +3,7 @@ import react from '@astrojs/react';
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://framik76.github.io',
-    base: '/casavacanze-lavecchiafonte-website/',
+    site: 'https://casavacanzelavecchiafonte.it',
+    base: '/',
     integrations: [react()]
 });
