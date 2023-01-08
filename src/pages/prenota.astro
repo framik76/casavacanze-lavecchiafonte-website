@@ -73,6 +73,7 @@ import Nav from '../components/Nav.astro';
                          <div class="form-field">
                             <label class="form-field-label" for="telefono"> Telefono</label>
                             <div class="form-field-control"><input class="inputForm" type="text" name="telefono" id="telefono" /></div>
+                            <div class="form-field-comment">Obbligatorio</div>
                          </div>
                          <div class="form-field">
                             <label class="form-field-label" for="checkin"> Data di arrivo</label>
@@ -108,8 +109,9 @@ import Nav from '../components/Nav.astro';
         </div>
         <script>
             function sendReservation() {
-                if (document.formReservation.your_name.value == "" || document.formReservation.your_email.value == "") {
-                    alert("Nome e/o email non inseriti");
+                if (document.formReservation.your_name.value == "" || document.formReservation.your_email.value == "" 
+                    || document.formReservation.telefono.value == "") {
+                    alert("Nome, email e/o telefono non inseriti");
                 }
                 let message = "Nome: " + document.getElementById("your_name").value + "\n";
                 message += "Email: " + document.getElementById("your_email").value + "\n";
