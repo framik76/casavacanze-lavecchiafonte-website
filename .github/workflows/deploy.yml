@@ -34,5 +34,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
+        env:
+          PUBLIC_MAILGUN_API_KEY: ${{ secrets.SECRET_MAILGUN_API_KEY }}
         id: deployment
         uses: actions/deploy-pages@v1
