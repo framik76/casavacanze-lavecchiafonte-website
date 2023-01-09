@@ -93,18 +93,14 @@ import Nav from '../components/Nav.astro';
                 message += "Oggetto: " + document.getElementById("oggetto").value + "\n";
                 message += "Messaggio: " + document.getElementById("message").value + "\n";
 
-                const formData = new FormData();
-                formData.append("from", "Website <mailgun@casavacanzelavecchiafonte.it>");
-                formData.append("to", "info@casavacanzelavecchiafonte.it");
-                formData.append("subject", "Richiesta informazioni");
-                formData.append("text", message);
-
-                fetch("https://api.mailgun.net/v3/sandbox128a4d9b962d4d5aab6ad361ad08b85e.mailgun.org/messages",
+                fetch("https://send-mail-casavacanzelavecchiafonte.netlify.app/.netlify/functions/sendMail",
                 {
                 method: 'POST',
-                headers: { 
-                    'Authorization': 'Basic ' + btoa("api:" + import.meta.env.PUBLIC_MAILGUN_API_KEY) },
-                body: formData
+                body: JSON.stringify({
+                    sender: "Website <mailgun@casavacanzelavecchiafonte.it>",
+                    destination: "info@casavacanzelavecchiafonte.it",
+                    subject: "Richiesta informazioni",
+                    text: message})
                 });
 
                 document.getElementById("results").innerHTML = "Richiesta inviata grazie, le risponderemo prima possibile";
