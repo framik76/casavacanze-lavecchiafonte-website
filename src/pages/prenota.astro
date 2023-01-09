@@ -123,16 +123,14 @@ import Nav from '../components/Nav.astro';
                 message += "Numero bambini da 3 anni in su: " + document.getElementById("children_paganti").value + "\n";
                 message += "Note: " + document.getElementById("notes").value + "\n";
 
-                const formData = new FormData();
-                formData.append("sender", "Website <mailgun@casavacanzelavecchiafonte.it>");
-                formData.append("destination", "info@casavacanzelavecchiafonte.it");
-                formData.append("subject", "Richiesta prenotazione");
-                formData.append("text", message);
-
                 fetch("https://send-mail-casavacanzelavecchiafonte.netlify.app/.netlify/functions/sendMail",
                 {
                 method: 'POST',
-                body: formData
+                body: JSON.stringify({
+                    sender: "Website <mailgun@casavacanzelavecchiafonte.it>",
+                    destination: "info@casavacanzelavecchiafonte.it",
+                    subject: "Richiesta prenotazione",
+                    text: message})
                 });
 
                 document.getElementById("results").innerHTML = "Richiesta inviata grazie, le risponderemo prima possibile";
