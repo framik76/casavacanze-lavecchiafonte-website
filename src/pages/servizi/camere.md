@@ -5,12 +5,14 @@ img: assets/camere.jpg
 description: |
   Le camere sono dotate di bagno interno
 gallery:
-  - assets/camera1.jpg
-  - assets/camera2.jpg
-  - assets/ginestra1.jpg
-  - assets/ginestra2.jpg
-  - assets/ginestra3.jpg
-  - assets/oleandro.jpg
+  - assets/camera1A.jpg
+  - assets/camera1B.jpg
+  - assets/camera1C.jpg
+  - assets/camera1D.jpg
+  - assets/camera2A.jpg
+  - assets/camera2B.jpg
+  - assets/camera2C.jpg
+  - assets/camera2D.jpg
 ---
 
 L'appartamento dispone di due camere da letto, ciascuna dotata di:
