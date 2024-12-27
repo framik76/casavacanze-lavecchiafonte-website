@@ -5,6 +5,7 @@ import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 import ServicePreview from '../components/servicePreview.astro';
 import type { Service } from '../types';
+import CookieConsent from '../components/CookieConsent.astro';
 
 // Data Fetching: List all Markdown posts in the repo.
 const services = await Astro.glob<Service>('./servizi/*.md');
@@ -275,5 +276,6 @@ const services = await Astro.glob<Service>('./servizi/*.md');
 			</div>
 		</div>
 		<Footer />
+		<CookieConsent />
 	</body>
 </html>
