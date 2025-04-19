@@ -33,7 +33,7 @@ jobs:
           PUBLIC_MAILGUN_API_KEY: ${{ secrets.SECRET_MAILGUN_API_KEY }}
         uses: withastro/action@v0
       
-      - name: Debug: List build output directory
+      - name: Debug List build output directory
         run: ls -la dist
       
 
@@ -54,7 +54,7 @@ jobs:
         with:
           name: build-artifacts
 
-      - name: Debug: List downloaded artifacts
+      - name: Debug List downloaded artifacts
         run: ls -la
 
       - name: Deploy to GitHub Pages
