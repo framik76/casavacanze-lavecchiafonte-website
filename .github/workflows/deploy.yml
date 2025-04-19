@@ -20,23 +20,23 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
-      #- name: Install, build, and upload your site
-      #  env:
-      #    PUBLIC_MAILGUN_API_KEY: ${{ secrets.SECRET_MAILGUN_API_KEY }}
-      #   uses: withastro/action@v0
+      - name: Install, build, and upload your site
+        env:
+          PUBLIC_MAILGUN_API_KEY: ${{ secrets.SECRET_MAILGUN_API_KEY }}
+          uses: withastro/action@v0
         # with:
             # path: . # The root location of your Astro project inside the repository. (optional)
             # node-version: 16 # The specific version of Node that should be used to build your site. Defaults to 16. (optional)
             # package-manager: yarn # The Node package manager that should be used to install dependencies and build your site. Automatically detected based on your lockfile. (optional)
-      - name: Install dependencies and build your site
-        env:
-          PUBLIC_MAILGUN_API_KEY: ${{ secrets.SECRET_MAILGUN_API_KEY }}
-        uses: withastro/action@v0
+      #- name: Install dependencies and build your site
+      #    PUBLIC_MAILGUN_API_KEY: ${{ secrets.SECRET_MAILGUN_API_KEY }}
+      #  env:
+      #  uses: withastro/action@v0
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifacts
-          path: . 
+          path: dist 
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -45,7 +45,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Download build artifacts
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v3
         with:
           name: build-artifacts
       - name: Deploy to GitHub Pages
