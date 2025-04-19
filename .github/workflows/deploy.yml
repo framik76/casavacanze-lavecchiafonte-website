@@ -36,7 +36,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: build-artifacts
-          path: dist # Replace `dist` with the actual output directory of your build
+          path: dist 
   deploy:
     needs: build
     runs-on: ubuntu-latest
