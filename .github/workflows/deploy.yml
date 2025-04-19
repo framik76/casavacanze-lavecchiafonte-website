@@ -35,6 +35,8 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3.1.3        
       - name: Deploy to GitHub Pages
         env:
           PUBLIC_MAILGUN_API_KEY: ${{ secrets.SECRET_MAILGUN_API_KEY }}
