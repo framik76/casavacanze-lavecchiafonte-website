@@ -32,6 +32,11 @@ jobs:
         env: 
           PUBLIC_MAILGUN_API_KEY: ${{ secrets.SECRET_MAILGUN_API_KEY }}
         uses: withastro/action@v0
+      
+      - name: Debug: List build output directory
+        run: ls -la dist
+      
+
       - name: Upload build artifacts
         uses: actions/upload-artifact@v3
         with:
@@ -48,6 +53,10 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: build-artifacts
+
+      - name: Debug: List downloaded artifacts
+        run: ls -la
+
       - name: Deploy to GitHub Pages
         env:
           PUBLIC_MAILGUN_API_KEY: ${{ secrets.SECRET_MAILGUN_API_KEY }}
